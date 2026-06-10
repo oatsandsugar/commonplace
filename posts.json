@@ -9,18 +9,18 @@
       "tags": ["economics", "agents", "the-firm", "layoffs-and-buybacks"]
     },
     {
-      "slug": "watson-crick-copying-mechanism",
-      "title": "It has not escaped our notice",
-      "summary": "Watson and Crick's quiet sentence about base pairing, copying, and the confidence of leaving the implications open.",
-      "date": "2026-06-10",
-      "tags": ["science", "biology", "scientific-writing", "discovery"]
-    },
-    {
       "slug": "venomous-lumpsucker-prosthesis",
       "title": "A prosthesis over a healthy limb",
       "summary": "Ned Beauman describes AI as a crutch that cripples.",
       "date": "2026-06-10",
       "tags": ["literature", "ai", "thinking", "tools"]
+    },
+    {
+      "slug": "watson-crick-copying-mechanism",
+      "title": "It has not escaped our notice",
+      "summary": "Watson and Crick's quiet sentence about base pairing, copying, and the confidence of leaving the implications open.",
+      "date": "2026-06-10",
+      "tags": ["science", "biology", "scientific-writing", "discovery"]
     },
     {
       "slug": "foil-backing-gems",
