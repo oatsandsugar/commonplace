@@ -1,0 +1,19 @@
+{
+  "posts": [
+    {
+      "slug": "nature-of-the-firm",
+      "title": "Firms are built on friction",
+      "summary": "Coase's 1937 answer to why firms exist, and why cheap agents put pressure on the boundary.",
+      "date": "2026-03-09",
+      "draft": true,
+      "tags": ["economics", "agents", "the-firm", "layoffs-and-buybacks"]
+    },
+    {
+      "slug": "watson-crick-copying-mechanism",
+      "title": "It has not escaped our notice",
+      "summary": "Watson and Crick's quiet sentence about base pairing, copying, and the confidence of leaving the implications open.",
+      "date": "2026-06-10",
+      "tags": ["science", "biology", "scientific-writing", "discovery"]
+    }
+  ]
+}
