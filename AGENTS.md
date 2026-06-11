@@ -1,0 +1,6 @@
+# Agent rules for this repo
+
+1. **No em dashes. None.** Not `&mdash;`, not `—`. Restructure the sentence instead: use a period, a comma, a colon, or parentheses.
+2. **Side-note placement.** Default to anchoring a margin note (`<label>/<input>/<span class="marginnote">`) at the top of the element it intellectually branches from. Most often that is the pull quote the entry is discussing, so the note's toggle belongs inside the blockquote's first paragraph, not in the commentary below it.
+3. **Citations are numbered sidenotes, not source-block entries.** Scholarly corroboration (dictionary entries, glossaries, papers) goes in a numbered Tufte sidenote (`<label class="margin-toggle sidenote-number">/<input>/<span class="sidenote">`) anchored at the specific claim it supports. Never anchor a citation sidenote inside quoted text unless it really was that quote's source.
+4. **Source block form.** The `<dl class="source">` at the bottom holds only provenance: a `Source:` row with a formal citation of the work the entry is about, then a lowercase `via:` row tracing how I found it (chained with commas, e.g. "Hacker News thread (date), via my own wiki-hn project"). See `posts/nature-of-the-firm.html` for the canonical example.

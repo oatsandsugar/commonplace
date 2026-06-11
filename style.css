@@ -17,6 +17,39 @@
 dl.entries dt { margin-top: 1em; }
 dl.entries dd { margin-left: 0; }
 
+/* Align blockquote-anchored side/margin notes with body-anchored ones.
+   Tufte sizes notes relative to their containing paragraph, and blockquote
+   paragraphs are 80px narrower (40px UA margins per side) than body
+   paragraphs, so tufte's own blockquote rule (-82% / min-width 59%) lands
+   notes in a different column. With article width A: body notes are
+   0.275A wide with right edge at 0.88A. Blockquote paragraphs are
+   0.55(A-80) wide, so width needs +22px (0.275*80) and the right margin
+   an extra 30.4px to reach the same 0.88A right edge. */
+blockquote .sidenote,
+blockquote .marginnote {
+  width: calc(50% + 22px);
+  min-width: 0;
+  margin-right: calc(-60% - 30.4px);
+}
+
+/* Whitespace between stacked margin notes: bottom margin only affects the
+   gap to the next note, without shifting a note away from the line it
+   annotates (tufte default is margin-bottom: 0). */
+.sidenote,
+.marginnote {
+  margin-bottom: 1.4rem;
+}
+
+/* Side/margin notes sit inline in the markup (mid-sentence), so selecting a
+   paragraph would otherwise sweep the note text and toggle glyph into the
+   copied text. Exclude them from selection so paste gives clean body text. */
+.sidenote,
+.marginnote,
+label.margin-toggle {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 .meta {
   font-size: 1.3rem;
   color: #666;
@@ -39,11 +72,13 @@ dl.source {
   margin-top: 3rem;
 }
 dl.source dt {
+  grid-column: 1;
   font-weight: bold;
   text-align: right;
   margin: 0;
 }
 dl.source dd {
+  grid-column: 2;
   margin: 0;
 }
 dl.source cite { font-style: italic; }
