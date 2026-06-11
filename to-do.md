@@ -73,6 +73,10 @@ Links posted to #ai, #llm-learnings, and #random between 2026-01-01 and 2026-04-
 - 2026-03-31. https://www.threads.com/@perfectl00p
 - 2026-04-08. https://youtu.be/frXX5KWYUaY. Quebecoise math rock rhythm analysis.
 
+## Follow-ups
+
+- 2026-06-11. Bertrand Russell, "In Praise of Idleness" (Harper's, 1932). https://harpers.org/archive/1932/10/in-praise-of-idleness/. Follow-up to the rest-isn't-idleness entry. Surprisingly economic in its argument; candidate pull quote: "The real villain, from this point of view, is the man who saves. If he merely puts his savings in a stocking, like the proverbial French peasant, it is obvious that they do not give employment. If he invests his savings the matter is less obvious, and different cases arise." The thread to pull: Russell (and Keynes, "Economic Possibilities for our Grandchildren", 1930, the fifteen-hour week) assumed productivity gains would be cashed out as leisure. The rest-isn't-idleness entry is about the opposite happening: the gains raising the opportunity cost of every idle hour instead. Pair the two predictions against the lived result.
+
 ## Suggested starter entries (clusters)
 
 1. **Coding agent memory**: Yegge's Beads post + the repo + own commentary.
