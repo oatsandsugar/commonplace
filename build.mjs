@@ -9,10 +9,14 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
+const SITE_URL = 'https://oatsnotes.com';
+const SITE_NAME = "@oatsandsugar's commonplace book";
 const { posts } = JSON.parse(readFileSync(join(ROOT, 'posts.json'), 'utf8'));
 const publishedPosts = posts.filter((p) => !p.draft);
 
 const escapeRegex = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const escapeAttr = (s) =>
+  s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 function replaceBetween(text, start, end, replacement) {
   const re = new RegExp(`(${escapeRegex(start)})[\\s\\S]*?(${escapeRegex(end)})`);
@@ -86,24 +90,54 @@ if (!updatedIndex) {
 writeFileSync(indexPath, updatedIndex);
 console.log('wrote index.html');
 
-// 2. Regenerate tag chips inside each post (optional; post is skipped if missing markers)
+// 2. Regenerate tag chips and head meta inside each post (each is skipped if markers are missing)
+function metaBlock(post) {
+  const title = escapeAttr(post.title);
+  const description = escapeAttr(post.summary);
+  const url = `${SITE_URL}/posts/${post.slug}.html`;
+  return [
+    `<meta name="description" content="${description}">`,
+    `<meta property="og:type" content="article">`,
+    `<meta property="og:site_name" content="${escapeAttr(SITE_NAME)}">`,
+    `<meta property="og:title" content="${title}">`,
+    `<meta property="og:description" content="${description}">`,
+    `<meta property="og:url" content="${url}">`,
+    `<meta name="twitter:card" content="summary">`,
+  ].join('\n');
+}
+
 for (const post of posts) {
   const postPath = join(ROOT, 'posts', `${post.slug}.html`);
   if (!existsSync(postPath)) {
     console.warn(`skip missing post: posts/${post.slug}.html`);
     continue;
   }
-  const html = readFileSync(postPath, 'utf8');
+  let html = readFileSync(postPath, 'utf8');
+  let touched = false;
+
   const chips = post.tags
     .map((t) => `    <a class="tag" href="../tags/${t}.html">${t}</a>`)
     .join('\n');
-  const updated = replaceBetween(html, '<!-- tags:start -->', '<!-- tags:end -->', chips);
-  if (!updated) {
+  const withChips = replaceBetween(html, '<!-- tags:start -->', '<!-- tags:end -->', chips);
+  if (withChips) {
+    html = withChips;
+    touched = true;
+  } else {
     console.warn(`skip (no tag markers): posts/${post.slug}.html`);
-    continue;
   }
-  writeFileSync(postPath, updated);
-  console.log(`wrote posts/${post.slug}.html`);
+
+  const withMeta = replaceBetween(html, '<!-- meta:start -->', '<!-- meta:end -->', metaBlock(post));
+  if (withMeta) {
+    html = withMeta;
+    touched = true;
+  } else {
+    console.warn(`skip (no meta markers): posts/${post.slug}.html`);
+  }
+
+  if (touched) {
+    writeFileSync(postPath, html);
+    console.log(`wrote posts/${post.slug}.html`);
+  }
 }
 
 // 3. Regenerate or scaffold every tag page
