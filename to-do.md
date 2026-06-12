@@ -75,6 +75,7 @@ Links posted to #ai, #llm-learnings, and #random between 2026-01-01 and 2026-04-
 
 ## Follow-ups
 
+- 2026-06-12. Jorge Luis Borges, "An Autobiographical Essay" (with Norman Thomas di Giovanni, The New Yorker, 1970; collected in *The Aleph and Other Stories*). https://gwern.net/doc/borges/1971-borges-anautobiographicalessay.pdf. Follow-up to the dialogue-about-a-dialogue entry: Borges' own account of meeting Macedonio Fernández ("Perhaps the major event of my return was Macedonio Fernández. Of all the people I have met in my life... no one has ever made so deep and so lasting an impression on me as Macedonio.").
 - 2026-06-11. Bertrand Russell, "In Praise of Idleness" (Harper's, 1932). https://harpers.org/archive/1932/10/in-praise-of-idleness/. Follow-up to the rest-isn't-idleness entry. Surprisingly economic in its argument; candidate pull quote: "The real villain, from this point of view, is the man who saves. If he merely puts his savings in a stocking, like the proverbial French peasant, it is obvious that they do not give employment. If he invests his savings the matter is less obvious, and different cases arise." The thread to pull: Russell (and Keynes, "Economic Possibilities for our Grandchildren", 1930, the fifteen-hour week) assumed productivity gains would be cashed out as leisure. The rest-isn't-idleness entry is about the opposite happening: the gains raising the opportunity cost of every idle hour instead. Pair the two predictions against the lived result.
 
 ## Suggested starter entries (clusters)
