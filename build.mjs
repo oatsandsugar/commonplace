@@ -76,7 +76,16 @@ ${entriesBlock}
 `;
 }
 
-// 1. Regenerate entries in index.html
+// 1. Regenerate entries and the threads line in index.html
+function threadsLine() {
+  const counts = new Map();
+  for (const p of publishedPosts) for (const t of p.tags) counts.set(t, (counts.get(t) || 0) + 1);
+  const items = [...counts.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([t, n]) => `<a class="thread" href="tags/${t}.html">${t}</a><span class="thread-count">&times;${n}</span>`);
+  return `<p class="threads">${items.join(',\n')}</p>`;
+}
+
 const indexPath = join(ROOT, 'index.html');
 let indexHtml = readFileSync(indexPath, 'utf8');
 const updatedIndex = replaceBetween(
@@ -89,7 +98,14 @@ if (!updatedIndex) {
   console.error('index.html is missing <!-- entries:start --> / <!-- entries:end --> markers.');
   process.exit(1);
 }
-writeFileSync(indexPath, updatedIndex);
+indexHtml = updatedIndex;
+const withThreads = replaceBetween(indexHtml, '<!-- threads:start -->', '<!-- threads:end -->', threadsLine());
+if (withThreads) {
+  indexHtml = withThreads;
+} else {
+  console.warn('index.html has no threads markers; skipped threads line');
+}
+writeFileSync(indexPath, indexHtml);
 console.log('wrote index.html');
 
 // 2. Regenerate tag chips and head meta inside each post (each is skipped if markers are missing)

@@ -58,6 +58,28 @@ dl.entries dt a:visited {
   text-underline-offset: 0.18em;
 }
 
+/* Threads: a quiet one-paragraph topical index into the entries. */
+p.threads {
+  font-size: 1.3rem;
+  color: var(--ink-quiet);
+}
+a.thread,
+a.thread:link,
+a.thread:visited {
+  color: var(--ink-quiet);
+  background: unset;
+  text-shadow: none;
+  text-decoration: none;
+}
+a.thread:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+.thread-count {
+  font-size: 1.1rem;
+  margin-left: 0.15em;
+}
+
 /* Section divider: the asterisk as house mark. */
 article > section + section::before {
   content: "*";
