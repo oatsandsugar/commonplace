@@ -6,42 +6,42 @@
       "summary": "Coase's 1937 answer to why firms exist, and why cheap agents put pressure on the boundary.",
       "date": "2026-03-09",
       "draft": true,
-      "tags": ["economics", "agents", "the-firm", "layoffs-and-buybacks"]
+      "tags": ["economics", "ai", "labor"]
     },
     {
       "slug": "venomous-lumpsucker-prosthesis",
       "title": "A prosthesis over a healthy limb",
       "summary": "Ned Beauman describes AI as a crutch that cripples.",
       "date": "2026-06-10",
-      "tags": ["literature", "ai", "thinking", "tools"]
+      "tags": ["ai", "thinking", "literature"]
     },
     {
       "slug": "dialogue-about-a-dialogue",
       "title": "Quite frankly, I don't remember",
       "summary": "Borges on a discussion of immortality at a noisy bar.*",
       "date": "2026-06-12",
-      "tags": ["literature", "borges", "postmodernism"]
+      "tags": ["literature", "writing"]
     },
     {
       "slug": "foil-backing-gems",
       "title": "A gem backed with foil",
       "summary": "The narrative foil comes from jewelers backing gems with foil to make them shine more brightly, and Shakespeare used the image knowingly.",
       "date": "2026-06-10",
-      "tags": ["etymology", "literature", "language"]
+      "tags": ["language", "literature"]
     },
     {
       "slug": "watson-crick-copying-mechanism",
       "title": "It has not escaped our notice",
       "summary": "Watson and Crick's quiet sentence about base pairing, copying, and the confidence of leaving the implications open.",
       "date": "2026-06-10",
-      "tags": ["science", "biology", "scientific-writing", "discovery"]
+      "tags": ["science", "writing"]
     },
     {
       "slug": "rest-idleness-alibi",
       "title": "Rest isn't idleness",
       "summary": "Leo Umilio on the approved kind of doing nothing (rest, which serves work) and the suspect kind (idleness, which serves nothing at all).",
       "date": "2026-06-11",
-      "tags": ["idleness", "leisure", "work"]
+      "tags": ["labor", "economics", "thinking"]
     }
   ]
 }
