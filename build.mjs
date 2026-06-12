@@ -32,6 +32,7 @@ function entryDl(postsList, prefix) {
     return `  <dt><a href="${prefix}posts/${p.slug}.html">${p.title}</a></dt>
   <dd>${p.summary}
     <span class="tag-list">
+      <span class="entry-date">${p.date}</span>
 ${chips}
     </span>
   </dd>`;
@@ -48,8 +49,9 @@ function tagPageTemplate(tag, entriesBlock) {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Tag: ${tag} | oatsandsugar's commonplace book</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.8.0/tufte.min.css">
+<link rel="stylesheet" href="../tufte/tufte.min.css">
 <link rel="stylesheet" href="../style.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
 </head>
 <body>
 <article>

@@ -1,3 +1,10 @@
+/* One accent (oxblood) and one quiet gray, dark-mode aware. The asterisk
+   is the house mark: a footnote symbol presiding over a book of margins. */
+:root {
+  --accent: #7b2d26;
+  --ink-quiet: #767676;
+}
+
 .back {
   font-size: 1.3rem;
   margin: 0 0 1rem 0;
@@ -18,19 +25,53 @@ a.tag:link,
 a.tag:visited {
   font-size: 1.1rem;
   margin-right: 0.9em;
-  color: #767676;
+  color: var(--ink-quiet);
   letter-spacing: 0.04em;
   background: unset;
   text-shadow: none;
   text-decoration: none;
 }
 a.tag:hover {
-  color: #111;
+  color: var(--accent);
   text-decoration: underline;
+}
+
+.entry-date {
+  font-size: 1.1rem;
+  margin-right: 0.9em;
+  color: var(--ink-quiet);
+  letter-spacing: 0.04em;
 }
 
 dl.entries dt { margin-top: 1em; }
 dl.entries dd { margin-left: 0; }
+
+/* Entry titles: ink text over a thin oxblood rule instead of tufte's
+   gradient underline. */
+dl.entries dt a:link,
+dl.entries dt a:visited {
+  background: unset;
+  text-shadow: none;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+/* Section divider: the asterisk as house mark. */
+article > section + section::before {
+  content: "*";
+  display: block;
+  width: 55%;
+  text-align: center;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--accent);
+  margin-bottom: 1.6rem;
+}
+@media (max-width: 760px) {
+  article > section + section::before { width: 100%; }
+}
 
 /* Align blockquote-anchored side/margin notes with body-anchored ones.
    Tufte sizes notes relative to their containing paragraph, and blockquote
@@ -107,3 +148,30 @@ dl.source dd {
   margin: 0;
 }
 dl.source cite { font-style: italic; }
+
+/* Dark mode: cream inverted to warm near-black. Tufte's gradient-underline
+   link trick hardcodes the cream background color, so links fall back to
+   plain underlines here. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: #c0635a;
+    --ink-quiet: #9a9186;
+  }
+  body {
+    background-color: #16130f;
+    color: #ddd6cc;
+  }
+  a:link,
+  a:visited {
+    background: unset;
+    text-shadow: none;
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
+  }
+  .back,
+  .meta,
+  dl.source,
+  blockquote .ellipsis {
+    color: #9a9186;
+  }
+}
