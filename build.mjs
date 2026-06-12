@@ -11,7 +11,7 @@ import { dirname, join } from 'node:path';
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const SITE_URL = 'https://oatsnotes.com';
 const SITE_NAME = "oatsandsugar's commonplace book";
-const { posts, tagGlosses = {} } = JSON.parse(readFileSync(join(ROOT, 'posts.json'), 'utf8'));
+const { posts } = JSON.parse(readFileSync(join(ROOT, 'posts.json'), 'utf8'));
 const publishedPosts = posts.filter((p) => !p.draft);
 
 const escapeRegex = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -76,20 +76,7 @@ ${entriesBlock}
 `;
 }
 
-// 1. Regenerate entries and the threads block in index.html
-function threadsBlock() {
-  const counts = new Map();
-  for (const p of publishedPosts) for (const t of p.tags) counts.set(t, (counts.get(t) || 0) + 1);
-  const items = [...counts.entries()]
-    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-    .map(([t, n]) => {
-      const gloss = (tagGlosses[t] || '').trim();
-      const glossHtml = gloss ? ` <span class="thread-gloss">${gloss}</span>` : '';
-      return `  <li><a class="thread" href="tags/${t}.html">${t}</a><span class="thread-count">&times;${n}</span>${glossHtml}</li>`;
-    });
-  return `<ul class="threads">\n${items.join('\n')}\n</ul>`;
-}
-
+// 1. Regenerate entries in index.html
 const indexPath = join(ROOT, 'index.html');
 let indexHtml = readFileSync(indexPath, 'utf8');
 const updatedIndex = replaceBetween(
@@ -102,14 +89,7 @@ if (!updatedIndex) {
   console.error('index.html is missing <!-- entries:start --> / <!-- entries:end --> markers.');
   process.exit(1);
 }
-indexHtml = updatedIndex;
-const withThreads = replaceBetween(indexHtml, '<!-- threads:start -->', '<!-- threads:end -->', threadsBlock());
-if (withThreads) {
-  indexHtml = withThreads;
-} else {
-  console.warn('index.html has no threads markers; skipped threads block');
-}
-writeFileSync(indexPath, indexHtml);
+writeFileSync(indexPath, updatedIndex);
 console.log('wrote index.html');
 
 // 2. Regenerate tag chips and head meta inside each post (each is skipped if markers are missing)
