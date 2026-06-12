@@ -6,12 +6,27 @@
 .back a { color: inherit; text-decoration: none; }
 .back a:hover { text-decoration: underline; }
 
+/* Tags sit on their own quiet row beneath the summary (index) or the
+   saved-date line (posts), styled as metadata rather than prose links:
+   small, gray, no Tufte underline until hover. */
 .tag-list {
-  margin-left: 0.8em;
+  display: block;
+  margin: 0.35rem 0 0 0;
 }
-.tag {
-  font-size: 1.3rem;
-  margin-right: 0.6em;
+a.tag,
+a.tag:link,
+a.tag:visited {
+  font-size: 1.1rem;
+  margin-right: 0.9em;
+  color: #767676;
+  letter-spacing: 0.04em;
+  background: unset;
+  text-shadow: none;
+  text-decoration: none;
+}
+a.tag:hover {
+  color: #111;
+  text-decoration: underline;
 }
 
 dl.entries dt { margin-top: 1em; }
