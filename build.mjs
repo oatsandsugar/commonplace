@@ -10,7 +10,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const SITE_URL = 'https://oatsnotes.com';
-const SITE_NAME = "@oatsandsugar's commonplace book";
+const SITE_NAME = "Oatsandsugar's commonplace book";
 const { posts } = JSON.parse(readFileSync(join(ROOT, 'posts.json'), 'utf8'));
 const publishedPosts = posts.filter((p) => !p.draft);
 
@@ -47,7 +47,7 @@ function tagPageTemplate(tag, entriesBlock) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tag: ${tag} | @oatsandsugar's commonplace book</title>
+<title>Tag: ${tag} | Oatsandsugar's commonplace book</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.8.0/tufte.min.css">
 <link rel="stylesheet" href="../style.css">
 </head>
