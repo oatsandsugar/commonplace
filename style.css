@@ -58,6 +58,30 @@ dl.entries dt a:visited {
   text-underline-offset: 0.18em;
 }
 
+/* Threads: the topical index into the entries (Locke's method). */
+ul.threads {
+  list-style: none;
+  width: 55%;
+  padding: 0;
+  margin-top: 1rem;
+}
+ul.threads li {
+  padding: 0.15rem 0;
+  font-size: 1.4rem;
+}
+.thread-count {
+  color: var(--ink-quiet);
+  font-size: 1.1rem;
+  margin-left: 0.4em;
+}
+.thread-gloss {
+  color: var(--ink-quiet);
+  margin-left: 0.5em;
+}
+@media (max-width: 760px) {
+  ul.threads { width: 100%; }
+}
+
 /* Section divider: the asterisk as house mark. */
 article > section + section::before {
   content: "*";
