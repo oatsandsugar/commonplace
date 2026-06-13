@@ -27,7 +27,7 @@
       "title": "A gem backed with foil",
       "summary": "The narrative foil comes from jewelers backing gems with foil to make them shine more brightly, and Shakespeare used the image knowingly.",
       "date": "2026-06-10",
-      "tags": ["language", "literature"]
+      "tags": ["language", "literature", "delightful-etymologies"]
     },
     {
       "slug": "watson-crick-copying-mechanism",
@@ -42,6 +42,21 @@
       "summary": "Leo Umilio on the approved kind of doing nothing (rest, which serves work) and the suspect kind (idleness, which serves nothing at all).",
       "date": "2026-06-11",
       "tags": ["labor", "economics", "thinking"]
+    },
+    {
+      "slug": "lemon-orchard-ai-agents",
+      "title": "A market for lemons in software",
+      "summary": "Draft follow-up: applying Akerlof's lemons logic to software markets.",
+      "date": "2026-06-13",
+      "draft": true,
+      "tags": ["economics", "ai", "software"]
+    },
+    {
+      "slug": "market-for-lemons",
+      "title": "A market for lemons",
+      "summary": "Akerlof on how information asymmetry can drive out quality and distort markets.",
+      "date": "2026-06-13",
+      "tags": ["economics"]
     }
   ]
 }
