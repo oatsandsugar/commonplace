@@ -16,6 +16,13 @@
       "tags": ["ai", "thinking", "literature"]
     },
     {
+      "slug": "market-for-lemons",
+      "title": "A market for lemons",
+      "summary": "Information asymmetry drives out quality products and distorts markets.",
+      "date": "2026-06-13",
+      "tags": ["economics", "markets", "trust", "academic-bangers"]
+    },
+    {
       "slug": "dialogue-about-a-dialogue",
       "title": "Quite frankly, I don't remember",
       "summary": "Borges on a discussion of immortality at a noisy bar.*",
@@ -25,21 +32,21 @@
     {
       "slug": "foil-backing-gems",
       "title": "A gem backed with foil",
-      "summary": "The narrative foil comes from jewelers backing gems with foil to make them shine more brightly, and Shakespeare used the image knowingly.",
+      "summary": "The narrative foil's beautiful etymology is a gem*.",
       "date": "2026-06-10",
       "tags": ["language", "literature", "delightful-etymologies"]
     },
     {
       "slug": "watson-crick-copying-mechanism",
       "title": "It has not escaped our notice",
-      "summary": "Watson and Crick's quiet sentence about base pairing, copying, and the confidence of leaving the implications open.",
+      "summary": "The academic confidence to trust the reader with the implications of discovering DNA's structure.",
       "date": "2026-06-10",
-      "tags": ["science", "writing"]
+      "tags": ["science", "writing", "academic-bangers"]
     },
     {
       "slug": "rest-idleness-alibi",
       "title": "Rest isn't idleness",
-      "summary": "Leo Umilio on the approved kind of doing nothing (rest, which serves work) and the suspect kind (idleness, which serves nothing at all).",
+      "summary": "Umilio: Rest serves work. Idleness serves nothing, and is beautiful because of it.",
       "date": "2026-06-11",
       "tags": ["labor", "economics", "thinking"]
     },
@@ -50,13 +57,6 @@
       "date": "2026-06-13",
       "draft": true,
       "tags": ["economics", "ai", "software"]
-    },
-    {
-      "slug": "market-for-lemons",
-      "title": "A market for lemons",
-      "summary": "Akerlof on how information asymmetry can drive out quality and distort markets.",
-      "date": "2026-06-13",
-      "tags": ["economics"]
     }
   ]
 }
