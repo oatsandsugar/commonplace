@@ -3,7 +3,7 @@
     {
       "slug": "nature-of-the-firm",
       "title": "Firms are built on friction",
-      "summary": "Coase's 1937 answer to why firms exist, and why cheap agents put pressure on the boundary.",
+      "summary": "A 1937 answer to why firms exist, and why cheap agents put pressure on the boundary.",
       "date": "2026-03-09",
       "draft": true,
       "tags": ["economics", "ai", "labor"]
@@ -11,7 +11,7 @@
     {
       "slug": "venomous-lumpsucker-prosthesis",
       "title": "A prosthesis over a healthy limb",
-      "summary": "Ned Beauman describes AI as a crutch that cripples.",
+      "summary": "AI as a crutch that cripples.",
       "date": "2026-06-10",
       "tags": ["ai", "thinking", "literature"]
     },
@@ -25,7 +25,7 @@
     {
       "slug": "dialogue-about-a-dialogue",
       "title": "Quite frankly, I don't remember",
-      "summary": "Borges on a discussion of immortality at a noisy bar.*",
+      "summary": "A discussion of immortality at a noisy bar.*",
       "date": "2026-06-12",
       "tags": ["literature", "writing", "thinking", "existence"]
     },
@@ -46,14 +46,14 @@
     {
       "slug": "rest-idleness-alibi",
       "title": "Rest isn't idleness",
-      "summary": "Umilio: Rest serves work. Idleness serves nothing, and is beautiful because of it.",
+      "summary": "Rest serves work. Idleness serves nothing, and is beautiful because of it.",
       "date": "2026-06-11",
       "tags": ["labor", "economics", "thinking"]
     },
     {
       "slug": "lemon-orchard-ai-agents",
       "title": "A market for lemons in software",
-      "summary": "Draft follow-up: applying Akerlof's lemons logic to software markets.",
+      "summary": "Draft follow-up: applying lemons logic to software markets.",
       "date": "2026-06-13",
       "draft": true,
       "tags": ["economics", "ai", "software"]

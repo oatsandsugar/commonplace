@@ -38,8 +38,32 @@ function extractProvenance(slug) {
 
 const provenanceBySlug = new Map(posts.map((p) => [p.slug, extractProvenance(p.slug)]));
 
+function formatDisplayDate(dateStr) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dateStr || '');
+  if (!m) return dateStr;
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+  const monthIdx = Number(m[2]) - 1;
+  if (monthIdx < 0 || monthIdx > 11) return dateStr;
+  const day = String(Number(m[3]));
+  return `${day} ${months[monthIdx]} ${m[1]}`;
+}
+
 function entryDl(postsList, prefix) {
   const items = postsList.map((p) => {
+    const displayDate = formatDisplayDate(p.date);
     const chips = p.tags
       .map((t) => `      <a class="tag" href="${prefix}tags/${t}.html">${t}</a>`)
       .join('\n');
@@ -61,11 +85,11 @@ function entryDl(postsList, prefix) {
 ${provenanceRows.join('\n')}
     </div>`
       : '';
-    return `  <dt><a href="${prefix}posts/${p.slug}.html">${p.title}</a></dt>
-  <dd>${p.summary}
+    return `  <dt><a href="${prefix}posts/${p.slug}.html">${p.title}</a>. <span class="entry-summary">${p.summary}</span></dt>
+  <dd>
 ${provenanceBlock}
     <span class="tag-list">
-      <span class="entry-date">${p.date}</span>
+      <span class="entry-date">${displayDate}</span>
 ${chips}
     </span>
   </dd>`;
