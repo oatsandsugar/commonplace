@@ -82,7 +82,22 @@ a.tag:hover {
   text-underline-offset: 0.12em;
 }
 
-dl.entries dt { margin-top: 1em; }
+dl.entries dt {
+  position: relative;
+  margin-top: 1em;
+}
+
+dl.entries dt::before {
+  content: "*";
+  position: absolute;
+  left: -1.2em;
+  top: calc(0.5em + 0.8ex);
+  transform: translateY(-50%);
+  color: var(--accent);
+  font-size: 1em;
+  line-height: 1;
+}
+
 dl.entries dd { margin-left: 0; }
 
 /* Entry titles: ink text over a thin oxblood rule instead of tufte's
@@ -139,6 +154,7 @@ article > section + section::before {
 }
 @media (max-width: 760px) {
   article > section + section::before { width: 100%; }
+  dl.entries dt::before { display: none; }
 }
 
 /* Align blockquote-anchored side/margin notes with body-anchored ones.
