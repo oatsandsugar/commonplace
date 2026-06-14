@@ -24,13 +24,46 @@ function replaceBetween(text, start, end, replacement) {
   return text.replace(re, `$1\n${replacement}\n$2`);
 }
 
+function extractProvenance(slug) {
+  const postPath = join(ROOT, 'posts', `${slug}.html`);
+  if (!existsSync(postPath)) return { source: null, via: null };
+  const html = readFileSync(postPath, 'utf8');
+  const sourceMatch = html.match(/<dt>\s*Source:\s*<\/dt>\s*<dd>([\s\S]*?)<\/dd>/i);
+  const viaMatch = html.match(/<dt>\s*via:\s*<\/dt>\s*<dd>([\s\S]*?)<\/dd>/i);
+  return {
+    source: sourceMatch ? sourceMatch[1].trim() : null,
+    via: viaMatch ? viaMatch[1].trim() : null,
+  };
+}
+
+const provenanceBySlug = new Map(posts.map((p) => [p.slug, extractProvenance(p.slug)]));
+
 function entryDl(postsList, prefix) {
   const items = postsList.map((p) => {
     const chips = p.tags
       .map((t) => `      <a class="tag" href="${prefix}tags/${t}.html">${t}</a>`)
       .join('\n');
+    const provenance = provenanceBySlug.get(p.slug) || { source: null, via: null };
+    const provenanceRows = [];
+    if (provenance.source) {
+      provenanceRows.push(
+        `      <div class="entry-provenance-row"><span class="entry-provenance-key">source:</span> ${provenance.source}</div>`,
+      );
+    }
+    if (provenance.via) {
+      provenanceRows.push(
+        `      <div class="entry-provenance-row"><span class="entry-provenance-key">via:</span> ${provenance.via}</div>`,
+      );
+    }
+    const provenanceBlock = provenanceRows.length
+      ? `
+    <div class="entry-provenance">
+${provenanceRows.join('\n')}
+    </div>`
+      : '';
     return `  <dt><a href="${prefix}posts/${p.slug}.html">${p.title}</a></dt>
   <dd>${p.summary}
+${provenanceBlock}
     <span class="tag-list">
       <span class="entry-date">${p.date}</span>
 ${chips}

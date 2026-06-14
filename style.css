@@ -43,6 +43,36 @@ a.tag:hover {
   letter-spacing: 0.04em;
 }
 
+.entry-provenance {
+  margin: 0.28rem 0 0 0;
+  color: var(--ink-quiet);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.entry-provenance-row {
+  margin-top: 0.1rem;
+}
+
+.entry-provenance-key {
+  letter-spacing: 0.04em;
+  margin-right: 0.32em;
+}
+
+.entry-provenance a:link,
+.entry-provenance a:visited {
+  color: inherit;
+  background: unset;
+  text-shadow: none;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.entry-provenance a:hover,
+.entry-provenance a:focus-visible {
+  color: var(--accent);
+}
+
 dl.entries dt { margin-top: 1em; }
 dl.entries dd { margin-left: 0; }
 
