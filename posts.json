@@ -5,7 +5,7 @@
       "title": "The pain of useless work",
       "summary": "Doing useless work is a violence.",
       "date": "2026-06-17",
-      "tags": ["labor", "economics", "markets"]
+      "tags": ["labor", "economics", "markets", "market-failure"]
     },
     {
       "slug": "nature-of-the-firm",
@@ -27,7 +27,7 @@
       "title": "A market for lemons",
       "summary": "Information asymmetry drives out quality products and distorts markets.",
       "date": "2026-06-13",
-      "tags": ["economics", "markets", "trust", "academic-bangers"]
+      "tags": ["economics", "markets", "market-failure", "information-asymmetry", "trust", "academic-bangers"]
     },
     {
       "slug": "dialogue-about-a-dialogue",
