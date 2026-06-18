@@ -1,13 +1,6 @@
 {
   "posts": [
     {
-      "slug": "widows-bay-comedy-of-omission",
-      "title": "And became that animal",
-      "summary": "Funny, scary, just a bit.",
-      "date": "2026-06-17",
-      "tags": ["comedy", "writing", "television"]
-    },
-    {
       "slug": "bullshit-jobs-psychological-violence",
       "title": "The pain of useless work",
       "summary": "Graeber convinces me psychologically, not economically.",
@@ -57,6 +50,13 @@
       "summary": "The academic confidence to trust the reader with the implications of discovering DNA's structure.",
       "date": "2026-06-10",
       "tags": ["science", "writing", "academic-bangers"]
+    },
+    {
+      "slug": "widows-bay-comedy-of-omission",
+      "title": "And became that animal",
+      "summary": "Funny, scary, just a bit.",
+      "date": "2026-06-17",
+      "tags": ["comedy", "writing", "television"]
     },
     {
       "slug": "rest-idleness-alibi",
