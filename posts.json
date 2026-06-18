@@ -1,6 +1,21 @@
 {
   "posts": [
     {
+      "slug": "widows-bay-comedy-of-omission",
+      "title": "And became that animal",
+      "summary": "The comedy of omission, in one line.",
+      "date": "2026-06-17",
+      "tags": ["comedy", "writing", "television"]
+    },
+    {
+      "slug": "bullshit-jobs-psychological-violence",
+      "title": "The pain of useless work",
+      "summary": "Graeber convinces me psychologically, not economically.",
+      "date": "2026-06-17",
+      "draft": true,
+      "tags": ["labor", "economics", "thinking"]
+    },
+    {
       "slug": "nature-of-the-firm",
       "title": "Firms are built on friction",
       "summary": "A 1937 answer to why firms exist, and why cheap agents put pressure on the boundary.",
