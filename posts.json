@@ -5,7 +5,7 @@
       "title": "The pain of useless work",
       "summary": "Doing useless work is a violence.",
       "date": "2026-06-17",
-      "tags": ["labor", "economics", "thinking"]
+      "tags": ["labor", "economics"]
     },
     {
       "slug": "nature-of-the-firm",
@@ -20,7 +20,7 @@
       "title": "A prosthesis over a healthy limb",
       "summary": "AI as a crutch that cripples.",
       "date": "2026-06-10",
-      "tags": ["ai", "thinking", "literature"]
+      "tags": ["ai", "cognition", "literature"]
     },
     {
       "slug": "market-for-lemons",
@@ -34,7 +34,7 @@
       "title": "Quite frankly, I don't remember",
       "summary": "A discussion of immortality at a noisy bar.*",
       "date": "2026-06-12",
-      "tags": ["literature", "writing", "thinking", "existence"]
+      "tags": ["literature", "writing", "economy-of-writing", "cognition", "existence"]
     },
     {
       "slug": "foil-backing-gems",
@@ -48,21 +48,21 @@
       "title": "It has not escaped our notice",
       "summary": "The academic confidence to trust the reader with the implications of discovering DNA's structure.",
       "date": "2026-06-10",
-      "tags": ["science", "writing", "academic-bangers"]
+      "tags": ["science", "writing", "economy-of-writing", "academic-bangers"]
     },
     {
       "slug": "widows-bay-comedy-of-omission",
       "title": "And became that animal",
       "summary": "Funny, scary, just a bit.",
       "date": "2026-06-17",
-      "tags": ["comedy", "writing", "television"]
+      "tags": ["comedy", "writing", "economy-of-writing", "television"]
     },
     {
       "slug": "rest-idleness-alibi",
       "title": "Rest isn't idleness",
       "summary": "Rest serves work. Idleness serves nothing, and is beautiful because of it.",
       "date": "2026-06-11",
-      "tags": ["labor", "economics", "thinking"]
+      "tags": ["labor", "economics"]
     },
     {
       "slug": "lemon-orchard-ai-agents",

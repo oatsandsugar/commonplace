@@ -203,6 +203,20 @@ blockquote .ellipsis {
   margin: 0.6rem 0;
 }
 
+.entry-image {
+  margin: 2rem 0 0 0;
+}
+.entry-image::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.entry-image img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 .meta {
   font-size: 1.3rem;
   color: #666;
