@@ -35,6 +35,7 @@ Links posted to #ai, #llm-learnings, and #random between 2026-01-01 and 2026-04-
 - 2026-03-31. https://x.com/Fried_rice/status/2038894956459290963
 - 2026-04-01. https://ccunpacked.dev/#agent-loop
 - 2026-04-22. https://clickhouse.com/blog/agentic-coding
+- 2026-06-18. https://marginalrevolution.com/marginalrevolution/2026/06/ai-native-firms.html. "AI-Native Firms" (Marginal Revolution, summarizing Hyunjin Kim and Rembrand Koning). AI-native startups are smaller, flatter, more engineering-heavy, and comparable in valuation. Pairs with the Coase/agents draft and labor/productivity threads.
 
 ## #llm-learnings
 
