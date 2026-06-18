@@ -1,12 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <style>
     .bg { fill: #fffff8; }
-    .mark { fill: #7b2d26; font: 130px Georgia, 'Times New Roman', serif; }
+    .mark { fill: none; stroke: #7b2d26; stroke-linecap: round; stroke-linejoin: round; }
     @media (prefers-color-scheme: dark) {
       .bg { fill: #16130f; }
-      .mark { fill: #c0635a; }
+      .mark { stroke: #c0635a; }
     }
   </style>
   <rect class="bg" width="100" height="100" rx="16"/>
-  <text class="mark" x="50" y="142" text-anchor="middle">*</text>
+  <circle class="mark" cx="50" cy="50" r="30" stroke-width="7"/>
+  <path class="mark" d="M50 34v32M34 50h32" stroke-width="9"/>
 </svg>
