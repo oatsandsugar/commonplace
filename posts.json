@@ -37,6 +37,13 @@
       "tags": ["literature", "economy-of-writing", "cognition", "existence"]
     },
     {
+      "slug": "in-praise-of-cosmetics",
+      "title": "The product of some art",
+      "summary": "Dramatic makeup is better, because human nature leads to cannibalism.",
+      "date": "2026-07-03",
+      "tags": ["nature", "culture", "drag-makeup", "comedy"]
+    },
+    {
       "slug": "foil-backing-gems",
       "title": "A gem backed with foil",
       "summary": "The narrative foil's beautiful etymology is a gem.*",
