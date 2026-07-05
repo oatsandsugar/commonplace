@@ -56,6 +56,58 @@ a.tag:hover {
   font-weight: 400;
 }
 
+/* The active date sort surfaces as a parenthetical on the title, where
+   the eye actually lands: the saved date or the source year. The little
+   date in the metadata line below is always the saved date. */
+.entry-title-date { display: none; }
+dl.entries.show-saved-date .entry-title-date-saved { display: inline; }
+dl.entries.show-source-date .entry-title-date-source { display: inline; }
+
+/* Sort control: a quiet sentence of options above the entries. */
+p.sort-line {
+  font-size: 1.2rem;
+  color: var(--ink-quiet);
+  margin-top: 0.6rem;
+}
+button.sort-option {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+}
+button.sort-option:hover,
+button.sort-option:focus-visible {
+  color: var(--accent);
+  text-decoration-thickness: 2px;
+}
+/* Active option stays clickable: a second click flips the sort direction. */
+button.sort-option.is-active {
+  color: var(--accent);
+  text-decoration: none;
+}
+.sort-arrow {
+  display: inline-block;
+  font-size: 0.9em;
+}
+
+/* Group labels inserted when entries are bucketed by via. */
+.entry-group-label {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--ink-quiet);
+}
+.entry-group-label + .entry dt {
+  margin-top: 0.4em;
+}
+
 .entry-provenance {
   margin: 0.08rem 0 0 0;
   color: var(--ink-quiet);

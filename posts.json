@@ -5,6 +5,8 @@
       "title": "The pain of useless work",
       "summary": "Doing useless work is a violence.",
       "date": "2026-06-17",
+      "sourceDate": "2013-08",
+      "via": "Selected Stories",
       "tags": ["labor", "economics", "markets", "market-failure"]
     },
     {
@@ -12,6 +14,8 @@
       "title": "Firms are built on friction",
       "summary": "A 1937 answer to why firms exist, and why cheap agents put pressure on the boundary.",
       "date": "2026-03-09",
+      "sourceDate": "1937",
+      "via": "X",
       "draft": true,
       "tags": ["economics", "ai", "labor"]
     },
@@ -20,6 +24,7 @@
       "title": "A prosthesis over a healthy limb",
       "summary": "AI as a crutch that cripples.",
       "date": "2026-06-10",
+      "sourceDate": "2022",
       "tags": ["ai", "cognition", "literature"]
     },
     {
@@ -27,6 +32,7 @@
       "title": "A market for lemons",
       "summary": "Information asymmetry drives out quality products and distorts markets.",
       "date": "2026-06-13",
+      "sourceDate": "1970",
       "tags": ["economics", "markets", "market-failure", "information-asymmetry", "trust", "academic-bangers"]
     },
     {
@@ -34,6 +40,7 @@
       "title": "Quite frankly, I don't remember",
       "summary": "A discussion of immortality at a noisy bar.*",
       "date": "2026-06-12",
+      "sourceDate": "1960",
       "tags": ["literature", "economy-of-writing", "cognition", "existence"]
     },
     {
@@ -41,6 +48,8 @@
       "title": "The product of some art",
       "summary": "Dramatic makeup is better, because human nature leads to cannibalism.",
       "date": "2026-07-03",
+      "sourceDate": "1863",
+      "via": "Selected Stories",
       "tags": ["nature", "culture", "drag-makeup", "comedy"]
     },
     {
@@ -48,6 +57,9 @@
       "title": "A gem backed with foil",
       "summary": "The narrative foil's beautiful etymology is a gem.*",
       "date": "2026-06-10",
+      "sourceDate": "2004-03-12",
+      "sourceDateDisplay": "created March 2004",
+      "via": "Hacker News",
       "tags": ["language", "literature", "delightful-etymologies"]
     },
     {
@@ -55,6 +67,7 @@
       "title": "It has not escaped our notice",
       "summary": "The academic confidence to trust the reader with the implications of discovering DNA's structure.",
       "date": "2026-06-10",
+      "sourceDate": "1953-04-25",
       "tags": ["science", "economy-of-writing", "academic-bangers"]
     },
     {
@@ -62,6 +75,7 @@
       "title": "And became that animal",
       "summary": "Funny, scary, just a bit.",
       "date": "2026-06-17",
+      "sourceDate": "2026",
       "tags": ["comedy", "economy-of-writing", "television"]
     },
     {
@@ -69,6 +83,8 @@
       "title": "Rest isn't idleness",
       "summary": "Rest serves work. Idleness serves nothing, and is beautiful because of it.",
       "date": "2026-06-11",
+      "sourceDate": "2026-05-30",
+      "via": "kottke.org",
       "tags": ["labor", "economics"]
     },
     {
@@ -76,6 +92,7 @@
       "title": "A market for lemons in software",
       "summary": "Draft follow-up: applying lemons logic to software markets.",
       "date": "2026-06-13",
+      "sourceDate": "1970",
       "draft": true,
       "tags": ["economics", "ai", "software"]
     }
