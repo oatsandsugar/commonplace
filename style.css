@@ -184,7 +184,7 @@ dl.entries dt .entry-summary {
   font-style: italic;
 }
 
-/* Threads: a quiet one-paragraph topical index into the entries. */
+/* Topics: a quiet footer index into the entries by tag. */
 p.threads {
   font-size: 1.3rem;
   color: var(--ink-quiet);
