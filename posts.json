@@ -116,6 +116,14 @@
       "sourceDate": "1970",
       "draft": true,
       "tags": ["economics", "ai", "software"]
+    },
+    {
+      "slug": "response-time-limits",
+      "title": "0.1 second is a UX instant",
+      "summary": "Are 3 and 5 minutes the same to a user?",
+      "date": "2026-08-26",
+      "sourceDate": "1993",
+      "tags": ["attention", "cognition", "hci"]
     }
   ]
 }
