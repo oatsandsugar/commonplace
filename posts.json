@@ -124,6 +124,16 @@
       "date": "2026-08-26",
       "sourceDate": "1993",
       "tags": ["attention", "cognition", "hci"]
+    },
+    {
+      "slug": "were-you-yourself-phaedo",
+      "title": "On the day when he drank the poison",
+      "summary": "Deliciously succinct exposition",
+      "date": "2026-09-08",
+      "sourceDate": "-0360",
+      "sourceDateDisplay": "360 B.C.E.",
+      "via": "PDX Coffee Club",
+      "tags": ["literature", "existence", "economy-of-writing"]
     }
   ]
 }
