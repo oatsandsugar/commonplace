@@ -9,3 +9,4 @@
 6. **Illegible marginalia workflow.** If handwritten annotations are unclear, ask me to confirm the exact wording. Do not guess.
 7. **Drafting workflow in this repo.** When I ask for a draft entry, draft directly in a new page under `posts/` and run the local dev server so I can review it in-browser.
 8. **Preserve unrelated in-flight edits.** If another thread has already modified tags or taxonomy, keep those changes intact unless I explicitly ask to remove them.
+9. **Shelf order is thematic, not time-based.** The default index sort (`posts.json` order) is a curated thematic shelf. Date saved, date of source, and via are separate filters. Never append a new published entry to the end just because it is newest. Place it next to its kin. If the right neighbor is unclear, ask.

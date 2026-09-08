@@ -55,6 +55,24 @@
       "tags": ["literature", "economy-of-writing", "cognition", "existence"]
     },
     {
+      "slug": "were-you-yourself-phaedo",
+      "title": "On the day when he drank the poison",
+      "summary": "Deliciously succinct exposition",
+      "date": "2026-09-08",
+      "sourceDate": "-0360",
+      "sourceDateDisplay": "360 B.C.E.",
+      "via": "PDX Coffee Club",
+      "tags": ["literature", "existence", "economy-of-writing"]
+    },
+    {
+      "slug": "watson-crick-copying-mechanism",
+      "title": "It has not escaped our notice",
+      "summary": "The academic confidence to trust the reader with the implications of discovering DNA's structure.",
+      "date": "2026-06-10",
+      "sourceDate": "1953-04-25",
+      "tags": ["science", "economy-of-writing", "academic-bangers"]
+    },
+    {
       "slug": "in-praise-of-cosmetics",
       "title": "The product of some art",
       "summary": "Dramatic makeup is better, because human nature leads to cannibalism.",
@@ -72,14 +90,6 @@
       "sourceDateDisplay": "created March 2004",
       "via": "Hacker News",
       "tags": ["language", "literature", "delightful-etymologies"]
-    },
-    {
-      "slug": "watson-crick-copying-mechanism",
-      "title": "It has not escaped our notice",
-      "summary": "The academic confidence to trust the reader with the implications of discovering DNA's structure.",
-      "date": "2026-06-10",
-      "sourceDate": "1953-04-25",
-      "tags": ["science", "economy-of-writing", "academic-bangers"]
     },
     {
       "slug": "widows-bay-comedy-of-omission",
@@ -124,16 +134,6 @@
       "date": "2026-08-26",
       "sourceDate": "1993",
       "tags": ["attention", "cognition", "hci"]
-    },
-    {
-      "slug": "were-you-yourself-phaedo",
-      "title": "On the day when he drank the poison",
-      "summary": "Deliciously succinct exposition",
-      "date": "2026-09-08",
-      "sourceDate": "-0360",
-      "sourceDateDisplay": "360 B.C.E.",
-      "via": "PDX Coffee Club",
-      "tags": ["literature", "existence", "economy-of-writing"]
     }
   ]
 }
