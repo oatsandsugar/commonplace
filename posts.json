@@ -20,6 +20,14 @@
       "tags": ["counterculture", "culture", "economics", "comedy", "cybersecurity"]
     },
     {
+      "slug": "first-law-of-complexodynamics",
+      "title": "Complexodynamics",
+      "summary": "The beautiful moment of high complexity",
+      "date": "2026-10-26",
+      "sourceDate": "2011-09-23",
+      "tags": ["complexity", "information-theory", "mental-furniture", "internet-bangers"]
+    },
+    {
       "slug": "nature-of-the-firm",
       "title": "Firms are built on friction",
       "summary": "A 1937 answer to why firms exist, and why cheap agents put pressure on the boundary.",
@@ -44,7 +52,7 @@
       "summary": "Information asymmetry drives out quality products and distorts markets.",
       "date": "2026-06-13",
       "sourceDate": "1970",
-      "tags": ["economics", "markets", "market-failure", "information-asymmetry", "trust", "academic-bangers"]
+      "tags": ["economics", "markets", "market-failure", "information-asymmetry", "trust", "academic-bangers", "mental-furniture"]
     },
     {
       "slug": "dialogue-about-a-dialogue",
@@ -78,7 +86,7 @@
       "summary": "The academic confidence to trust the reader with the implications of discovering DNA's structure.",
       "date": "2026-06-10",
       "sourceDate": "1953-04-25",
-      "tags": ["science", "economy-of-writing", "academic-bangers"]
+      "tags": ["genetics", "economy-of-writing", "academic-bangers"]
     },
     {
       "slug": "in-praise-of-cosmetics",
