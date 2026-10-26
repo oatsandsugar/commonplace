@@ -7,12 +7,15 @@
 import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { createHash } from 'node:crypto';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const SITE_URL = 'https://oatsnotes.com';
 const SITE_NAME = "oatsandsugar's commonplace book";
+const SITE_DESCRIPTION = 'A catalogue of things worth keeping, with thoughts or half thoughts as to why.';
 const { posts } = JSON.parse(readFileSync(join(ROOT, 'posts.json'), 'utf8'));
 const publishedPosts = posts.filter((p) => !p.draft);
+const sharePreviews = [];
 
 const escapeRegex = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const escapeAttr = (s) =>
@@ -22,6 +25,16 @@ function replaceBetween(text, start, end, replacement) {
   const re = new RegExp(`(${escapeRegex(start)})[\\s\\S]*?(${escapeRegex(end)})`);
   if (!re.test(text)) return null;
   return text.replace(re, `$1\n${replacement}\n$2`);
+}
+
+function updateMeta(html, meta) {
+  const updated = replaceBetween(html, '<!-- meta:start -->', '<!-- meta:end -->', meta);
+  if (updated) return updated;
+  // New pages need no manual metadata setup. Replace any old social tags once.
+  return html.replace(/<head\b[^>]*>[\s\S]*?<\/head>/i, (head) => {
+    const cleanHead = head.replace(/<meta\b(?=[^>]*(?:name|property)\s*=\s*["'](?:description|og:[^"']+|twitter:[^"']+)["'])[^>]*>\s*/gi, '');
+    return cleanHead.replace(/<\/head>/i, `<!-- meta:start -->\n${meta}\n<!-- meta:end -->\n</head>`);
+  });
 }
 
 function extractProvenance(slug) {
@@ -180,6 +193,9 @@ if (!updatedIndex) {
   process.exit(1);
 }
 indexHtml = updatedIndex;
+indexHtml = updateMeta(indexHtml, pageMeta({
+  type: 'website', title: SITE_NAME, description: SITE_DESCRIPTION, url: `${SITE_URL}/`, html: indexHtml,
+}));
 const withThreads = replaceBetween(indexHtml, '<!-- threads:start -->', '<!-- threads:end -->', threadsLine());
 if (withThreads) {
   indexHtml = withThreads;
@@ -189,20 +205,65 @@ if (withThreads) {
 writeFileSync(indexPath, indexHtml);
 console.log('wrote index.html');
 
-// 2. Regenerate tag chips and head meta inside each post (each is skipped if markers are missing)
-function metaBlock(post) {
-  const title = escapeAttr(post.title);
-  const description = escapeAttr(post.summary);
-  const url = `${SITE_URL}/posts/${post.slug}.html`;
+// 2. Regenerate tag chips and head metadata inside each post.
+function decodeAttr(value) {
+  const entities = { amp: '&', quot: '"', apos: "'", lt: '<', gt: '>', lsquo: '‘', rsquo: '’' };
+  return value.replace(/&(#x[\da-f]+|#\d+|amp|quot|apos|lt|gt|lsquo|rsquo);/gi, (match, entity) => {
+    if (entity.startsWith('#')) {
+      const isHex = entity[1].toLowerCase() === 'x';
+      return String.fromCodePoint(parseInt(entity.slice(isHex ? 2 : 1), isHex ? 16 : 10));
+    }
+    return entities[entity.toLowerCase()] || match;
+  });
+}
+
+// Use the entry's first image as it is, or the site logo when it has no image.
+function shareImage(html, pageUrl) {
+  const firstImage = html.match(/<img\b[^>]*>/i)?.[0];
+  const src = firstImage?.match(/\ssrc\s*=\s*(["'])(.*?)\1/i)?.[2];
+  const alt = firstImage?.match(/\salt\s*=\s*(["'])(.*?)\1/i)?.[2];
+  const isLogo = !src;
+  const url = new URL(src ? decodeAttr(src) : '/assets/og/logo.png', pageUrl);
+  if (url.origin === SITE_URL) {
+    const imagePath = join(ROOT, decodeURIComponent(url.pathname));
+    const version = createHash('sha256').update(readFileSync(imagePath)).digest('hex').slice(0, 12);
+    url.searchParams.set('v', version);
+  }
+  const extension = url.pathname.split('.').pop().toLowerCase();
+  const type = { png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg', webp: 'image/webp', gif: 'image/gif' }[extension];
+  return { url, alt: isLogo ? 'Circled plus and oatsnotes.com' : decodeAttr(alt || ''), isLogo, type };
+}
+
+function pageMeta({ type, title, description, url, html = '', preview = true }) {
+  const image = shareImage(html, url);
+  const imageUrl = escapeAttr(image.url.href);
+  const imageAlt = escapeAttr(image.alt);
+  const imageMeta = [
+    `<meta property="og:image" content="${imageUrl}">`,
+    ...(image.type ? [`<meta property="og:image:type" content="${image.type}">`] : []),
+    ...(image.isLogo ? ['<meta property="og:image:width" content="1200">', '<meta property="og:image:height" content="630">'] : []),
+    `<meta property="og:image:alt" content="${imageAlt}">`,
+    '<meta name="twitter:card" content="summary_large_image">',
+    `<meta name="twitter:image" content="${imageUrl}">`,
+    `<meta name="twitter:image:alt" content="${imageAlt}">`,
+  ];
+  if (preview) sharePreviews.push({ title, description, url, image });
   return [
-    `<meta name="description" content="${description}">`,
-    `<meta property="og:type" content="article">`,
+    `<meta name="description" content="${escapeAttr(description)}">`,
+    `<meta property="og:type" content="${type}">`,
     `<meta property="og:site_name" content="${escapeAttr(SITE_NAME)}">`,
-    `<meta property="og:title" content="${title}">`,
-    `<meta property="og:description" content="${description}">`,
+    `<meta property="og:title" content="${escapeAttr(title)}">`,
+    `<meta property="og:description" content="${escapeAttr(description)}">`,
     `<meta property="og:url" content="${url}">`,
-    `<meta name="twitter:card" content="summary">`,
+    ...imageMeta,
   ].join('\n');
+}
+
+function metaBlock(post, html) {
+  return pageMeta({
+    type: 'article', title: post.title, description: post.summary,
+    url: `${SITE_URL}/posts/${post.slug}.html`, html, preview: !post.draft,
+  });
 }
 
 for (const post of posts) {
@@ -225,13 +286,8 @@ for (const post of posts) {
     console.warn(`skip (no tag markers): posts/${post.slug}.html`);
   }
 
-  const withMeta = replaceBetween(html, '<!-- meta:start -->', '<!-- meta:end -->', metaBlock(post));
-  if (withMeta) {
-    html = withMeta;
-    touched = true;
-  } else {
-    console.warn(`skip (no meta markers): posts/${post.slug}.html`);
-  }
+  html = updateMeta(html, metaBlock(post, html));
+  touched = true;
 
   if (touched) {
     writeFileSync(postPath, html);
@@ -239,7 +295,7 @@ for (const post of posts) {
   }
 }
 
-// 3. Regenerate or scaffold every tag page
+// 3. Regenerate or scaffold every tag page, including its social metadata.
 const allTags = new Set();
 for (const p of posts) for (const t of p.tags) allTags.add(t);
 for (const file of readdirSync(join(ROOT, 'tags'))) {
@@ -250,18 +306,50 @@ for (const tag of [...allTags].sort()) {
   const tagPath = join(ROOT, 'tags', `${tag}.html`);
   const tagPosts = publishedPosts.filter((p) => p.tags.includes(tag));
   const block = entryDl(tagPosts, '../');
-
-  if (existsSync(tagPath)) {
-    const html = readFileSync(tagPath, 'utf8');
-    const updated = replaceBetween(html, '<!-- entries:start -->', '<!-- entries:end -->', block);
-    if (!updated) {
-      console.warn(`tags/${tag}.html exists but lacks markers; skipped`);
-      continue;
-    }
-    writeFileSync(tagPath, updated);
-    console.log(`wrote tags/${tag}.html`);
+  let html = existsSync(tagPath) ? readFileSync(tagPath, 'utf8') : tagPageTemplate(tag, block);
+  const updated = replaceBetween(html, '<!-- entries:start -->', '<!-- entries:end -->', block);
+  if (!updated) {
+    console.warn(`tags/${tag}.html lacks entry markers; preserved entries`);
   } else {
-    writeFileSync(tagPath, tagPageTemplate(tag, block));
-    console.log(`created tags/${tag}.html`);
+    html = updated;
   }
+  html = updateMeta(html, pageMeta({
+    type: 'website', title: `Tag: ${tag}`, description: `Entries tagged ${tag}.`,
+    url: `${SITE_URL}/tags/${tag}.html`, html,
+  }));
+  writeFileSync(tagPath, html);
+  console.log(`wrote tags/${tag}.html`);
 }
+
+// Gallery of the actual images selected for published pages.
+writeFileSync(join(ROOT, 'assets/og/preview.html'), `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Share image previews</title>
+<style>
+body { margin: 40px auto; padding: 0 24px; max-width: 1100px; background: #fffff8; color: #222; font-family: system-ui, sans-serif; }
+h1 { font-size: 28px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+figure { margin: 0; overflow: hidden; border: 1px solid #ddd; border-radius: 10px; background: white; }
+img { display: block; width: 100%; height: 260px; object-fit: contain; background: #fffff8; }
+figcaption { padding: 18px; }
+a { color: #7b2d26; font-weight: 600; }
+p { line-height: 1.5; }
+small { color: #666; }
+</style>
+</head>
+<body>
+<h1>Share images</h1>
+<p>Each page uses its first image. Pages without images use the site wordmark.</p>
+<div class="grid">
+${sharePreviews.sort((a, b) => Number(a.image.isLogo) - Number(b.image.isLogo)).map(({ title, description, url, image }) => {
+  const imageSrc = image.url.origin === SITE_URL ? image.url.pathname + image.url.search : image.url.href;
+  return `<figure><img src="${escapeAttr(imageSrc)}" alt="${escapeAttr(image.alt)}"><figcaption><a href="${new URL(url).pathname}">${escapeAttr(title)}</a><p>${escapeAttr(description)}</p><small>${image.isLogo ? 'Site wordmark' : 'First image on the page'}</small></figcaption></figure>`;
+}).join('\n')}
+</div>
+</body>
+</html>
+`);
