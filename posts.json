@@ -44,7 +44,7 @@
       "date": "2026-06-10",
       "sourceDate": "2022",
       "via": "my partner",
-      "tags": ["ai", "cognition", "literature"]
+      "tags": ["ai", "cognition", "literature", "mental-furniture"]
     },
     {
       "slug": "market-for-lemons",
@@ -60,7 +60,7 @@
       "summary": "A discussion of immortality at a noisy bar.*",
       "date": "2026-06-12",
       "sourceDate": "1960",
-      "tags": ["literature", "economy-of-writing", "cognition", "existence"]
+      "tags": ["literature", "economy-of-writing", "cognition", "existence", "mental-furniture"]
     },
     {
       "slug": "akira-new-universe",
@@ -113,7 +113,7 @@
       "summary": "Something valuable, or something thought about?",
       "date": "2026-10-26",
       "via": "Eagle Creek trail",
-      "tags": ["language", "delightful-etymologies"]
+      "tags": ["language", "delightful-etymologies", "cognition"]
     },
     {
       "slug": "widows-bay-comedy-of-omission",
@@ -131,7 +131,7 @@
       "date": "2026-06-11",
       "sourceDate": "2026-05-30",
       "via": "kottke.org",
-      "tags": ["labor", "economics"]
+      "tags": ["labor", "economics", "complexity"]
     },
     {
       "slug": "phantom-tollbooth-reality",
